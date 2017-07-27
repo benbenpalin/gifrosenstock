@@ -24,17 +24,46 @@
         {:on-click #(swap! collapsed? not)} "☰"]
        [:div.collapse.navbar-toggleable-xs
         (when-not @collapsed? {:class "in"})
-        [:a.navbar-brand {:href "#/"} "gifrosenstock"]
+        [:a.navbar-brand {:href "#/"} "gifrosenstock.com"]
         [:ul.nav.navbar-nav
          [nav-link "#/" "Home" :home collapsed?]
          [nav-link "#/about" "About" :about collapsed?]]]])))
 
-(defn home-page []
-  [:div.container
 
+;----------------------------------
+;HOME PAGE GIF https://thumbs.gfycat.com/DisastrousCleverHippopotamus-size_restricted.gif
+
+(def gifmap {:0 "https://media.giphy.com/media/3o7TKJcneY8JkZNYBi/giphy.gif"
+             :1 "http://i.makeagif.com/save/v0GwnN"
+             :2 "https://media.giphy.com/media/3o7TKyohNLnEhOIVkA/giphy.gif"
+             :3 "https://thumbs.gfycat.com/DisastrousCleverHippopotamus-size_restricted.gif"
+             :4 "https://thumbs.gfycat.com/SatisfiedDemandingHoneycreeper-size_restricted.gif"})
+
+(def currentmap gifmap)
+
+(defn new-gif
+  "returns a random gif from the gifmap"
+  [] (currentmap (keyword (str (rand-int 5)))))
+
+
+
+
+(defn home-page []
+  (let [gif (r/atom (new-gif))]
+  [:div.container
    [:div.row
     [:div.col-md-12
-     [:img {:src (str js/context "https://media.giphy.com/media/3o7TKJcneY8JkZNYBi/giphy.gif")}]]]])
+     [:h1.page-title "GIFROSENSTOCK.COM!!!!!!" ]]]
+   [:div.row
+    [:div.col-md-12.maingif
+     [:img {:src (str js/context @gif)}]]]
+   [:div.row
+    [:div.col-md-12
+     [:input.gifbutton {:type "button" :value "NEW GIF!!!"
+              :on-click #(reset! gif new-gif)}] ]]]))
+
+
+;----------------------------------------
 
 (defn about-page []
   [:div.container
@@ -42,6 +71,7 @@
      [:div.row>div.col-sm-12
       [:div {:dangerouslySetInnerHTML
              {:__html (md->html docs)}}]])])
+
 
 (def pages
   {:home #'home-page
