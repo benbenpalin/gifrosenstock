@@ -6,11 +6,41 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 100%;
   background-image: url(http://s0.limitedrun.com/images/1195462/176-scrambles_original.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.about-page {
+     background-image: url(http://s0.limitedrun.com/images/1195459/BTMI_goodbyecoolw_original.jpg);
+    background-position: center center;
+}
+
+#copy-this {
+  font-size: 0px;
+
+
+}
+
 .navbar {
   margin-bottom: 10px;
-  border-radius: 0px;
+  border-radius: 10px;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-color: blue;
 }
+
+.bg-primary {
+  background-color: pink!important;
+}
+
+.nav-font {
+   font-size: 30px;
+  font-family: Bangers;
+
+}
+
+
 
 a {
     text-align: center;
@@ -18,9 +48,10 @@ a {
 
 .page-title {
   text-align: center;
-  font-size: 70px;
+  font-size: 100px;
   font-family: Special Elite;
-  color: green;
+  color: blue;
+  margin-top: 50px;
 
 }
 
@@ -28,13 +59,15 @@ img {
   height: 400px;
    display: block;
     margin: auto;
+
 }
 
 .maingif {
-  padding: 100px;
+ padding-top: 50px;
+ padding-bottom: 75px;
 }
 
-input.gifbutton {
+.gifbutton {
    display: block;
     margin: auto;
   color: blue;
@@ -47,12 +80,19 @@ padding: 10px 32px;
 
 
 }
+
 .navbar-brand {
   float: none;
 }
 .navbar-nav .nav-item {
   float: none;
 }
+
+.nav-link {
+ color: blue!important;
+
+}
+
 .navbar-divider,
 .navbar-nav .nav-item+.nav-item,
 .navbar-nav .nav-link + .nav-link {

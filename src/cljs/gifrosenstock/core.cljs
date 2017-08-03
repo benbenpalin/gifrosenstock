@@ -6,7 +6,8 @@
             [goog.history.EventType :as HistoryEventType]
             [markdown.core :refer [md->html]]
             [gifrosenstock.ajax :refer [load-interceptors!]]
-            [ajax.core :refer [GET POST]])
+            [ajax.core :refer [GET POST]]
+            [cljsjs.clipboard :as c])
   (:import goog.History))
 
 (defn nav-link [uri title page collapsed?]
@@ -24,53 +25,111 @@
         {:on-click #(swap! collapsed? not)} "☰"]
        [:div.collapse.navbar-toggleable-xs
         (when-not @collapsed? {:class "in"})
-        [:a.navbar-brand {:href "#/"} "gifrosenstock.com"]
-        [:ul.nav.navbar-nav
-         [nav-link "#/" "Home" :home collapsed?]
-         [nav-link "#/about" "About" :about collapsed?]]]])))
+        [:ul.nav.navbar-nav.nav-font
+         [nav-link "#/" " Home" :home collapsed?]
+         [nav-link "#/about" " About" :about collapsed?]]]])))
 
 
 ;----------------------------------
-;HOME PAGE GIF https://thumbs.gfycat.com/DisastrousCleverHippopotamus-size_restricted.gif
+;HOME PAGE
+
+(defn clipboard-button [label target]
+  (let [clipboard-atom (atom nil)]
+    (r/create-class
+     {:display-name "clipboard-button"
+      :component-did-mount
+      #(let [clipboard (new js/Clipboard (r/dom-node %))]
+         (reset! clipboard-atom clipboard)
+         (c/debugf "Clipboard mounted"))
+      :component-will-unmount
+      #(when-not (nil? @clipboard-atom)
+         (.destroy @clipboard-atom)
+         (reset! clipboard-atom nil)
+         (c/debugf "Clipboard unmounted"))
+      :reagent-render
+      (fn []
+        [:button.clipboard.gifbutton
+         {:data-clipboard-target target}
+         label])})))
 
 (def gifmap {:0 "https://media.giphy.com/media/3o7TKJcneY8JkZNYBi/giphy.gif"
              :1 "http://i.makeagif.com/save/v0GwnN"
              :2 "https://media.giphy.com/media/3o7TKyohNLnEhOIVkA/giphy.gif"
              :3 "https://thumbs.gfycat.com/DisastrousCleverHippopotamus-size_restricted.gif"
-             :4 "https://thumbs.gfycat.com/SatisfiedDemandingHoneycreeper-size_restricted.gif"})
+             :4 "https://thumbs.gfycat.com/SatisfiedDemandingHoneycreeper-size_restricted.gif"
+             :5 "https://media.giphy.com/media/7fTu979vElNLy/giphy.gif"
+             :6 "https://media.giphy.com/media/jyxMqAX4iEf2E/giphy.gif"
+             :7 "https://media.giphy.com/media/s2GNMNR46c1Ik/giphy.gif"
+             :8 "https://media.giphy.com/media/2GmIZ1o9W1l2U/giphy.gif"
+             :9 "https://media.giphy.com/media/aMOaQQDui4fUQ/giphy.gif"
+             :10 "https://media.giphy.com/media/KU0GfYFWUr5Cg/giphy.gif"
+             :11 "https://media.giphy.com/media/mqL2zmcTRTAA0/giphy.gif"
+             :12 "https://media.giphy.com/media/UpY0Ozp2urdOE/giphy.gif"
+             :13 "https://media.giphy.com/media/V4hfThqxCTxgk/giphy.gif"
+             :14 "https://media.giphy.com/media/ZaT7bNOCAnwju/giphy.gif"
+             :15 "https://media.giphy.com/media/fG8MnBSXg00yA/giphy.gif"
+             :16 "https://media.giphy.com/media/gVpHfVQfed0kg/giphy.gif"
+             :17 "https://media.giphy.com/media/tT4CUC4jgCHkc/giphy.gif"
+             :18 "https://j.gifs.com/Wnx2Lx.gif"
+             :19 "https://j.gifs.com/lOZARg.gif"})
 
-(def currentmap gifmap)
+(def keyvec (shuffle (range (count gifmap)))) ;random vector of keys to the GIFs
 
 (defn new-gif
   "returns a random gif from the gifmap"
-  [] (currentmap (keyword (str (rand-int 5)))))
+  [n] (if (< n (count keyvec))
+        (gifmap (keyword (str (get keyvec n))))
+        (gifmap (keyword (str (get keyvec (rem n (count keyvec))))))))
 
 
 
+(def gif-num (r/atom 0)) ;initial atom for gif num
 
 (defn home-page []
-  (let [gif (r/atom (new-gif))]
+
   [:div.container
    [:div.row
     [:div.col-md-12
      [:h1.page-title "GIFROSENSTOCK.COM!!!!!!" ]]]
    [:div.row
     [:div.col-md-12.maingif
-     [:img {:src (str js/context @gif)}]]]
+     [:img {:src (new-gif @gif-num)}]]]
+   [:h1]
+     [:div {:id "copy-this"} (new-gif @gif-num)]
    [:div.row
-    [:div.col-md-12
+    [:div.col-md-2]
+    [:div.col-md-4
      [:input.gifbutton {:type "button" :value "NEW GIF!!!"
-              :on-click #(reset! gif new-gif)}] ]]]))
+                        :on-click #(swap! gif-num inc)}]]
+    [:div.col-md-4
+      [clipboard-button "COPY GIF!!!" "#copy-this"]]
+    [:div.col-md-2]]])
 
 
 ;----------------------------------------
 
 (defn about-page []
-  [:div.container
-   (when-let [docs (session/get :docs)]
+  [:div.container.about-page
      [:div.row>div.col-sm-12
-      [:div {:dangerouslySetInnerHTML
-             {:__html (md->html docs)}}]])])
+      [:h1.page-title "About Jeff!"]]
+     [:div.row
+      [:p "Jeff Rosenstock is a living punk rock legend. He began as the singer/songwriter of the early 2000's ska
+           band The Arrogant Songs Of Bitches. After feeling overwhelmed by the capitalist hellhole that is the music
+           industry, Jeff began making his own music as Bomb The Music Industry! and releasing it for free. BTMI
+           garnered critical acclaim and a hefty dedicated fanbase, and continued to rise in popularity unti their
+           breakup in 2014. From start to finish, they released all albums for free, and alway plays all ages shows
+           that were less than $10. After BTMI broke up, Jeff went solo. Jeff Rosenstock has released 3 albums, two
+           of which are full band affairs, and continues to garner acclaim and grow his fanbase."]][:br]
+    [:div.row>div.col-sm-12
+     [:h1.page-title "About Ben!"][:br]]
+    [:div.row
+     [:p "Ben Palin is a clojure developer and punk fan currently living in Chicago. He work at Guaranteed Rate and
+           regularly goes see Jeff play. Check out his github HERE, where this code, and many of his other projects."]][:br]
+    [:div.row>div.col-sm-12
+     [:h1.page-title "About GIF!"][:br]]
+    [:div.row
+      [:p "GIF is a file type that stands for Graphic Interchange Format. There are great GIFs all over the internet, start GIFing!"]]
+   ])
 
 
 (def pages
