@@ -114,21 +114,30 @@
       [:h1.page-title "About Jeff!"]]
      [:div.row
       [:p "Jeff Rosenstock is a living punk rock legend. He began as the singer/songwriter of the early 2000's ska
-           band The Arrogant Songs Of Bitches. After feeling overwhelmed by the capitalist hellhole that is the music
-           industry, Jeff began making his own music as Bomb The Music Industry! and releasing it for free. BTMI
-           garnered critical acclaim and a hefty dedicated fanbase, and continued to rise in popularity unti their
+           band "
+       [:a.about-link {:href "http://quoteunquoterecords.com/qur023.htm"} "The Arrogant Songs Of Bitches."]
+        " After feeling overwhelmed by the capitalist hellhole that is the music
+           industry, Jeff began making his own music "
+       [:a.about-link {:href "http://quoteunquoterecords.com/qur002.htm"} "Bomb The Music Industry!"]
+       "and releasing it for free. BTMI
+           garnered critical acclaim and a hefty dedicated fanbase, and continued to rise in popularity until their
            breakup in 2014. From start to finish, they released all albums for free, and alway plays all ages shows
-           that were less than $10. After BTMI broke up, Jeff went solo. Jeff Rosenstock has released 3 albums, two
+           that were less than $10. After BTMI broke up, Jeff went solo. "
+       [:a.about-link {:href "http://www.quoteunquoterecords.com/qur088.htm"} "Jeff Rosenstock"]
+       " has released 3 albums, two
            of which are full band affairs, and continues to garner acclaim and grow his fanbase."]][:br]
     [:div.row>div.col-sm-12
      [:h1.page-title "About Ben!"][:br]]
     [:div.row
      [:p "Ben Palin is a clojure developer and punk fan currently living in Chicago. He work at Guaranteed Rate and
-           regularly goes see Jeff play. Check out his github HERE, where this code, and many of his other projects."]][:br]
+          regularly goes see Jeff play. Check out his "
+     [:a.about-link {:href "https://github.com/benbenpalin"} "github"]
+      " where you can find the code for this site, as well as many of his other projects."]][:br]
     [:div.row>div.col-sm-12
      [:h1.page-title "About GIF!"][:br]]
-    [:div.row
-      [:p "GIF is a file type that stands for Graphic Interchange Format. There are great GIFs all over the internet, start GIFing!"]]
+   [:div.row
+      [:p "GIF is a file type that stands for Graphic Interchange Format. There are great GIFs all over the internet, start"
+    [:a.about-link {:href "https://giphy.com/create/gifmaker"} " GIFing!"]]]
    ])
 
 

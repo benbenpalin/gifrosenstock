@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Special+Elite);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Bangers);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
 html,
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -9,6 +11,16 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+p {
+
+  padding-left: 30px;
+  padding-right: 20px;
+  font-family: josefin sans;
+  font-weight: bold;
+  font-size: 20px;
+  color: darkblue;
 }
 
 .about-page {
@@ -26,12 +38,13 @@ body {
   margin-bottom: 10px;
   border-radius: 10px;
   border-left-style: solid;
-  border-right-style: solid;
+
   border-color: blue;
 }
 
 .bg-primary {
-  background-color: pink!important;
+ background: linear-gradient(to right, pink, pink 40%
+, blue);
 }
 
 .nav-font {
