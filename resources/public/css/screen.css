@@ -13,6 +13,10 @@ body {
   background-size: cover;
 }
 
+.about-link {
+  color: blue;
+}
+
 p {
 
   padding-left: 30px;
@@ -26,6 +30,7 @@ p {
 .about-page {
      background-image: url(http://s0.limitedrun.com/images/1195459/BTMI_goodbyecoolw_original.jpg);
     background-position: center center;
+  border-radius: 25px;
 }
 
 #copy-this {
@@ -88,7 +93,7 @@ img {
   font-size: 40px;
 font-family: Bangers;
   background-color: pink;
-padding: 10px 32px;
+padding: 10px 72px;
   border: 2px solid blue;
 
 

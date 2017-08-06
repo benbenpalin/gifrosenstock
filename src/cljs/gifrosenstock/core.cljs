@@ -7,7 +7,8 @@
             [markdown.core :refer [md->html]]
             [gifrosenstock.ajax :refer [load-interceptors!]]
             [ajax.core :refer [GET POST]]
-            [cljsjs.clipboard :as c])
+            ;[cljsjs.clipboard :as c]
+            )
   (:import goog.History))
 
 (defn nav-link [uri title page collapsed?]
@@ -33,24 +34,24 @@
 ;----------------------------------
 ;HOME PAGE
 
-(defn clipboard-button [label target]
-  (let [clipboard-atom (atom nil)]
-    (r/create-class
-     {:display-name "clipboard-button"
-      :component-did-mount
-      #(let [clipboard (new js/Clipboard (r/dom-node %))]
-         (reset! clipboard-atom clipboard)
-         (c/debugf "Clipboard mounted"))
-      :component-will-unmount
-      #(when-not (nil? @clipboard-atom)
-         (.destroy @clipboard-atom)
-         (reset! clipboard-atom nil)
-         (c/debugf "Clipboard unmounted"))
-      :reagent-render
-      (fn []
-        [:button.clipboard.gifbutton
-         {:data-clipboard-target target}
-         label])})))
+;; (defn clipboard-button [label target]
+;;   (let [clipboard-atom (atom nil)]
+;;     (r/create-class
+;;      {:display-name "clipboard-button"
+;;       :component-did-mount
+;;       #(let [clipboard (new js/Clipboard (r/dom-node %))]
+;;          (reset! clipboard-atom clipboard)
+;;          (c/debugf "Clipboard mounted"))
+;;       :component-will-unmount
+;;       #(when-not (nil? @clipboard-atom)
+;;          (.destroy @clipboard-atom)
+;;          (reset! clipboard-atom nil)
+;;          (c/debugf "Clipboard unmounted"))
+;;       :reagent-render
+;;       (fn []
+;;         [:button.clipboard.gifbutton
+;;          {:data-clipboard-target target}
+;;          label])})))
 
 (def gifmap {:0 "https://media.giphy.com/media/3o7TKJcneY8JkZNYBi/giphy.gif"
              :1 "http://i.makeagif.com/save/v0GwnN"
@@ -97,12 +98,12 @@
    [:h1]
      [:div {:id "copy-this"} (new-gif @gif-num)]
    [:div.row
-    [:div.col-md-2]
+    [:div.col-md-4]
     [:div.col-md-4
      [:input.gifbutton {:type "button" :value "NEW GIF!!!"
                         :on-click #(swap! gif-num inc)}]]
-    [:div.col-md-4
-      [clipboard-button "COPY GIF!!!" "#copy-this"]]
+;;     [:div.col-md-4
+;;       [clipboard-button "COPY GIF!!!" "#copy-this"]]
     [:div.col-md-2]]])
 
 
@@ -117,20 +118,20 @@
            band "
        [:a.about-link {:href "http://quoteunquoterecords.com/qur023.htm"} "The Arrogant Songs Of Bitches."]
         " After feeling overwhelmed by the capitalist hellhole that is the music
-           industry, Jeff began making his own music "
+           industry, Jeff began making his own music as "
        [:a.about-link {:href "http://quoteunquoterecords.com/qur002.htm"} "Bomb The Music Industry!"]
-       "and releasing it for free. BTMI
-           garnered critical acclaim and a hefty dedicated fanbase, and continued to rise in popularity until their
-           breakup in 2014. From start to finish, they released all albums for free, and alway plays all ages shows
-           that were less than $10. After BTMI broke up, Jeff went solo. "
+       " and releasing it for free. BTMI!
+           garnered critical acclaim and a dedicated fanbase, and continued to rise in popularity until their
+           breakup in 2014. From start to finish, they released all albums for free, and alway played all ages shows
+           that cost less than $10. After BTMI! broke up, Jeff went solo. "
        [:a.about-link {:href "http://www.quoteunquoterecords.com/qur088.htm"} "Jeff Rosenstock"]
        " has released 3 albums, two
-           of which are full band affairs, and continues to garner acclaim and grow his fanbase."]][:br]
+           of which are full band affairs, and continues to get massive love from citics and fans alike."]][:br]
     [:div.row>div.col-sm-12
      [:h1.page-title "About Ben!"][:br]]
     [:div.row
-     [:p "Ben Palin is a clojure developer and punk fan currently living in Chicago. He work at Guaranteed Rate and
-          regularly goes see Jeff play. Check out his "
+     [:p "Ben Palin is a clojure developer and punk fan currently living in Chicago. He works at Guaranteed Rate and
+          regularly goes to see Jeff play. Check out his "
      [:a.about-link {:href "https://github.com/benbenpalin"} "github"]
       " where you can find the code for this site, as well as many of his other projects."]][:br]
     [:div.row>div.col-sm-12
