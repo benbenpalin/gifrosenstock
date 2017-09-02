@@ -30,28 +30,8 @@
          [nav-link "#/" " Home" :home collapsed?]
          [nav-link "#/about" " About" :about collapsed?]]]])))
 
-
-;----------------------------------
-;HOME PAGE
-
-;; (defn clipboard-button [label target]
-;;   (let [clipboard-atom (atom nil)]
-;;     (r/create-class
-;;      {:display-name "clipboard-button"
-;;       :component-did-mount
-;;       #(let [clipboard (new js/Clipboard (r/dom-node %))]
-;;          (reset! clipboard-atom clipboard)
-;;          (c/debugf "Clipboard mounted"))
-;;       :component-will-unmount
-;;       #(when-not (nil? @clipboard-atom)
-;;          (.destroy @clipboard-atom)
-;;          (reset! clipboard-atom nil)
-;;          (c/debugf "Clipboard unmounted"))
-;;       :reagent-render
-;;       (fn []
-;;         [:button.clipboard.gifbutton
-;;          {:data-clipboard-target target}
-;;          label])})))
+; ----------------------------------
+; HOME PAGE
 
 (def gifmap {:0 "https://media.giphy.com/media/3o7TKJcneY8JkZNYBi/giphy.gif"
              :1 "http://i.makeagif.com/save/v0GwnN"
@@ -82,8 +62,6 @@
         (gifmap (keyword (str (get keyvec n))))
         (gifmap (keyword (str (get keyvec (rem n (count keyvec))))))))
 
-
-
 (def gif-num (r/atom 0)) ;initial atom for gif num
 
 (defn home-page []
@@ -102,12 +80,10 @@
     [:div.col-md-4
      [:input.gifbutton {:type "button" :value "NEW GIF!!!"
                         :on-click #(swap! gif-num inc)}]]
-;;     [:div.col-md-4
-;;       [clipboard-button "COPY GIF!!!" "#copy-this"]]
     [:div.col-md-2]]])
 
-
-;----------------------------------------
+; ----------------------------------------
+; ABOUT PAGE
 
 (defn about-page []
   [:div.container.about-page
@@ -141,7 +117,6 @@
     [:a.about-link {:href "https://giphy.com/create/gifmaker"} " GIFing!"]]]
    ])
 
-
 (def pages
   {:home #'home-page
    :about #'about-page})
@@ -151,6 +126,7 @@
 
 ;; -------------------------
 ;; Routes
+
 (secretary/set-config! :prefix "#")
 
 (secretary/defroute "/" []
@@ -162,6 +138,7 @@
 ;; -------------------------
 ;; History
 ;; must be called after routes have been defined
+
 (defn hook-browser-navigation! []
   (doto (History.)
         (events/listen
@@ -172,6 +149,7 @@
 
 ;; -------------------------
 ;; Initialize app
+
 (defn fetch-docs! []
   (GET "/docs" {:handler #(session/put! :docs %)}))
 
