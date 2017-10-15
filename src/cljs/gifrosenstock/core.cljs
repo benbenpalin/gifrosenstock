@@ -11,24 +11,19 @@
             )
   (:import goog.History))
 
-(defn nav-link [uri title page collapsed?]
+(defn nav-link [uri title page]
   [:li.nav-item
    {:class (when (= page (session/get :page)) "active")}
    [:a.nav-link
-    {:href uri
-     :on-click #(reset! collapsed? true)} title]])
+    {:href uri} title]])
 
 (defn navbar []
   (let [collapsed? (r/atom true)]
     (fn []
       [:nav.navbar.navbar-dark.bg-primary
-       [:button.navbar-toggler.hidden-sm-up
-        {:on-click #(swap! collapsed? not)} "☰"]
-       [:div.collapse.navbar-toggleable-xs
-        (when-not @collapsed? {:class "in"})
-        [:ul.nav.navbar-nav.nav-font
-         [nav-link "#/" " Home" :home collapsed?]
-         [nav-link "#/about" " About" :about collapsed?]]]])))
+       [:ul.nav.navbar-nav.nav-font
+        [nav-link "#/" " Home" :home]
+        [nav-link "#/about" " About" :about]]])))
 
 (def gifmap {:0 "https://media.giphy.com/media/3o7TKJcneY8JkZNYBi/giphy.gif"
              :1 "http://i.makeagif.com/save/v0GwnN"

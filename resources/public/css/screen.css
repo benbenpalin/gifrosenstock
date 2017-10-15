@@ -14,6 +14,16 @@
  .page-title {
    margin-top: 20px!important;
  }
+ .navbar {
+  padding: 0px 0px 0px 5px!important;
+  line-height: 20px!important;
+ }
+ .gifbutton {
+  font-size: 30px!important;
+  height: 50px!important;
+  line-height: 50px!important;
+  padding: 0px 0px 0px 0px!important;
+ }
 }
 
 html,
@@ -48,7 +58,6 @@ p {
 }
 
 .navbar {
-  margin-bottom: 10px;
   border-radius: 10px;
   border-left-style: solid;
   border-color: blue;
@@ -105,36 +114,23 @@ img {
   cursor: pointer;
 }
 
-.navbar-brand {
-  float: none;
-}
-.navbar-nav .nav-item {
-  float: none;
-}
-
 .nav-link {
   color: blue!important;
-}
+ }
+
+.navbar-brand {
+  float: left;
+ }
+
+.navbar-nav .nav-item {
+  float: left;
+ }
 
 .navbar-divider,
 .navbar-nav .nav-item+.nav-item,
 .navbar-nav .nav-link + .nav-link {
-  margin-left: 0;
-}
-
-@media (min-width: 34em) {
-  .navbar-brand {
-    float: left;
-  }
-  .navbar-nav .nav-item {
-    float: left;
-  }
-  .navbar-divider,
-  .navbar-nav .nav-item+.nav-item,
-  .navbar-nav .nav-link + .nav-link {
-    margin-left: 1rem;
-  }
-}
+  margin-left: 1rem;
+ }
 
 @-moz-keyframes three-quarters-loader {
     0% {
