@@ -15,6 +15,7 @@
    margin-top: 20px!important;
  }
 }
+
 html,
 body {
 	 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -40,18 +41,10 @@ p {
   color: darkblue;
 }
 
-
-
 .about-page {
   background-image: url(http://s0.limitedrun.com/images/1195459/BTMI_goodbyecoolw_original.jpg);
   background-position: center center;
   border-radius: 25px;
-}
-
-#copy-this {
-  font-size: 0px;
-
-
 }
 
 .navbar {
@@ -86,8 +79,10 @@ a {
 img {
   width: 700px;
   max-width: 90%;
+  max-height: 393.75px;
   display: block;
   margin: auto;
+  border-radius: 20px;
 }
 
 .maingif {
@@ -103,8 +98,11 @@ img {
   font-size: 40px;
   font-family: Bangers;
   background-color: pink;
-  padding: 10px 72px;
+  padding: 10px ;
+  width: 700px;
+  max-width: 90%;
   border: 2px solid blue;
+  cursor: pointer;
 }
 
 .navbar-brand {

@@ -67,10 +67,9 @@
     [:h1.page-title "GIFROSENSTOCK.COM!!!!!!" ]]
    [:div.row
     [:img {:src (new-gif @gif-num)}]]
-   [:div.row.gif-row {:style {:padding-top "20px"}}
+   [:div.row.gif-row {:style {:padding-top "30px"}}
     [:input.gifbutton {:type "button" :value "NEW GIF!!!"
                        :on-click #(swap! gif-num inc)}]]])
-
 
 ;----------------------------------------
 
