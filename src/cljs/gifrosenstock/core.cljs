@@ -87,24 +87,14 @@
 (def gif-num (r/atom 0)) ;initial atom for gif num
 
 (defn home-page []
-
   [:div.container
    [:div.row
-    [:div.col-md-12
-     [:h1.page-title "GIFROSENSTOCK.COM!!!!!!" ]]]
+    [:h1.page-title "GIFROSENSTOCK.COM!!!!!!" ]]
    [:div.row
-    [:div.col-md-12.maingif
-     [:img {:src (new-gif @gif-num)}]]]
-   [:h1]
-     [:div {:id "copy-this"} (new-gif @gif-num)]
-   [:div.row
-    [:div.col-md-4]
-    [:div.col-md-4
-     [:input.gifbutton {:type "button" :value "NEW GIF!!!"
-                        :on-click #(swap! gif-num inc)}]]
-;;     [:div.col-md-4
-;;       [clipboard-button "COPY GIF!!!" "#copy-this"]]
-    [:div.col-md-2]]])
+    [:img {:src (new-gif @gif-num)}]]
+   [:div.row.gif-row {:style {:padding-top "20px"}}
+    [:input.gifbutton {:type "button" :value "NEW GIF!!!"
+                        :on-click #(swap! gif-num inc)}]]])
 
 
 ;----------------------------------------

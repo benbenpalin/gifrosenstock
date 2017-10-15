@@ -3,6 +3,19 @@
 @import url(https://fonts.googleapis.com/css?family=Bangers);
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
+@media (min-width: 1200px){
+
+.container {
+    width: 1400px!important;
+    max-width: 100%;
+}}
+
+@media (max-width: 720px){
+ .page-title {
+   margin-top: 20px!important;
+
+ }
+}
 html,
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -11,11 +24,13 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .about-link {
   color: blue;
 }
+
 
 p {
 
@@ -26,6 +41,8 @@ p {
   font-size: 20px;
   color: darkblue;
 }
+
+
 
 .about-page {
      background-image: url(http://s0.limitedrun.com/images/1195459/BTMI_goodbyecoolw_original.jpg);
@@ -66,18 +83,21 @@ a {
 
 .page-title {
   text-align: center;
-  font-size: 100px;
+ vertical-align: middle;
+  font-size: 8vw;
   font-family: Special Elite;
   color: blue;
   margin-top: 50px;
 
 }
 
-img {
-  height: 400px;
-   display: block;
-    margin: auto;
 
+
+img {
+  width: 700px;
+  max-width: 90%;
+  display: block;
+  margin: auto;
 }
 
 .maingif {
