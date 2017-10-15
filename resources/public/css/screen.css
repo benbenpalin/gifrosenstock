@@ -4,22 +4,21 @@
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
 @media (min-width: 1200px){
-
-.container {
+ .container {
     width: 1400px!important;
     max-width: 100%;
-}}
+ }
+}
 
 @media (max-width: 720px){
  .page-title {
    margin-top: 20px!important;
-
  }
 }
 html,
 body {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    height: 100%;
+	 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 100%;
   background-image: url(http://s0.limitedrun.com/images/1195462/176-scrambles_original.jpg);
   background-position: center center;
   background-repeat: no-repeat;
@@ -33,7 +32,6 @@ body {
 
 
 p {
-
   padding-left: 30px;
   padding-right: 20px;
   font-family: josefin sans;
@@ -45,8 +43,8 @@ p {
 
 
 .about-page {
-     background-image: url(http://s0.limitedrun.com/images/1195459/BTMI_goodbyecoolw_original.jpg);
-    background-position: center center;
+  background-image: url(http://s0.limitedrun.com/images/1195459/BTMI_goodbyecoolw_original.jpg);
+  background-position: center center;
   border-radius: 25px;
 }
 
@@ -60,38 +58,30 @@ p {
   margin-bottom: 10px;
   border-radius: 10px;
   border-left-style: solid;
-
   border-color: blue;
 }
 
 .bg-primary {
- background: linear-gradient(to right, pink, pink 40%
-, blue);
+  background: linear-gradient(to right, pink, pink 40%, blue);
 }
 
 .nav-font {
-   font-size: 30px;
+  font-size: 30px;
   font-family: Bangers;
-
 }
 
-
-
 a {
-    text-align: center;
+  text-align: center;
 }
 
 .page-title {
   text-align: center;
- vertical-align: middle;
+  vertical-align: middle;
   font-size: 8vw;
   font-family: Special Elite;
   color: blue;
   margin-top: 50px;
-
 }
-
-
 
 img {
   width: 700px;
@@ -101,22 +91,20 @@ img {
 }
 
 .maingif {
- padding-top: 50px;
- padding-bottom: 75px;
+  padding-top: 50px;
+  padding-bottom: 75px;
 }
 
 .gifbutton {
-   display: block;
-    margin: auto;
+  display: block;
+  margin: auto;
   color: blue;
   border-radius: 5px;
   font-size: 40px;
-font-family: Bangers;
+  font-family: Bangers;
   background-color: pink;
-padding: 10px 72px;
+  padding: 10px 72px;
   border: 2px solid blue;
-
-
 }
 
 .navbar-brand {
@@ -127,8 +115,7 @@ padding: 10px 72px;
 }
 
 .nav-link {
- color: blue!important;
-
+  color: blue!important;
 }
 
 .navbar-divider,
@@ -136,6 +123,7 @@ padding: 10px 72px;
 .navbar-nav .nav-link + .nav-link {
   margin-left: 0;
 }
+
 @media (min-width: 34em) {
   .navbar-brand {
     float: left;
@@ -184,4 +172,3 @@ padding: 10px 72px;
         transform: rotate(360deg);
     }
 }
-
