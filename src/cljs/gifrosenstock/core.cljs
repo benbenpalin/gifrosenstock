@@ -75,8 +75,8 @@
    [:div.row
     [:p "Jeff Rosenstock is a living punk rock legend. He began as the singer/songwriter of the early 2000's ska
      band "
-     [:a.about-link {:href "http://quoteunquoterecords.com/qur023.htm"} "The Arrogant Songs Of Bitches."]
-     " After feeling overwhelmed by the capitalist hellhole that is the music
+     [:a.about-link {:href "http://quoteunquoterecords.com/qur023.htm"} "ASOM."]
+     " After feeling overwhelmed by the mess that is the music
      industry, Jeff began making his own music as "
      [:a.about-link {:href "http://quoteunquoterecords.com/qur002.htm"} "Bomb The Music Industry!"]
      " and releasing it for free. BTMI!
@@ -84,15 +84,14 @@
      breakup in 2014. From start to finish, they released all albums for free, and alway played all ages shows
      that cost less than $10. After BTMI! broke up, Jeff went solo. "
      [:a.about-link {:href "http://www.quoteunquoterecords.com/qur088.htm"} "Jeff Rosenstock"]
-     " has released 3 albums, two
+     " has released 4 albums, three
      of which are full band affairs, and continues to get massive love from citics and fans alike."]]
    [:br]
    [:div.row>div.col-sm-12
     [:h1.page-title "About Ben!"][:br]]
    [:div.row
-    [:p "Ben Palin is a clojure developer and punk fan currently living in Chicago. He works at Guaranteed Rate and
-     regularly goes to see Jeff play. Check out his "
-     [:a.about-link {:href "https://github.com/benbenpalin"} "github"]
+    [:p "Ben Palin is a clojure developer and punk fan currently living in Chicago. He regularly goes to see Jeff play. Check out his "
+     [:a.about-link {:href "https://github.com/benbenpalin"} "github"] 
      " where you can find the code for this site, as well as many of his other projects."]]
    [:br]
    [:div.row>div.col-sm-12
