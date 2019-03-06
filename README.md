@@ -1,6 +1,6 @@
 # gifrosenstock
 
-Random GIFs of Jeff Rosenstock. Can be found at gifrosenstock.com.
+Random GIFs of Jeff Rosenstock. Can be found at https://gifrosenstock.herokuapp.com.
 
 generated using Luminus version "2.9.11.70"
 
