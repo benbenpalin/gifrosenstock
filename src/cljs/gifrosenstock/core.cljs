@@ -73,7 +73,7 @@
    [:div.row
     [:p "Jeff Rosenstock is a living punk rock legend. He began as the singer/songwriter of the early 2000's ska
      band "
-     [:a.about-link {:href "http://quoteunquoterecords.com/qur023.htm"} "ASOM."]
+     [:a.about-link {:href "http://quoteunquoterecords.com/qur023.htm"} "ASOB."]
      " After feeling overwhelmed by the mess that is the music
      industry, Jeff began making his own music as "
      [:a.about-link {:href "http://quoteunquoterecords.com/qur002.htm"} "Bomb The Music Industry!"]
