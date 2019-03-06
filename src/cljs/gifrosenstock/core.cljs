@@ -26,7 +26,7 @@
         [nav-link "#/about" " About" :about]]])))
 
 (def gifmap {:0 "https://media.giphy.com/media/3o7TKJcneY8JkZNYBi/giphy.gif"
-             :1 "http://i.makeagif.com/save/v0GwnN"
+             :1 "https://j.gifs.com/Wnx2Lx.gif"
              :2 "https://media.giphy.com/media/3o7TKyohNLnEhOIVkA/giphy.gif"
              :3 "https://thumbs.gfycat.com/DisastrousCleverHippopotamus-size_restricted.gif"
              :4 "https://thumbs.gfycat.com/SatisfiedDemandingHoneycreeper-size_restricted.gif"
@@ -42,9 +42,7 @@
              :14 "https://media.giphy.com/media/ZaT7bNOCAnwju/giphy.gif"
              :15 "https://media.giphy.com/media/fG8MnBSXg00yA/giphy.gif"
              :16 "https://media.giphy.com/media/gVpHfVQfed0kg/giphy.gif"
-             :17 "https://media.giphy.com/media/tT4CUC4jgCHkc/giphy.gif"
-             :18 "https://j.gifs.com/Wnx2Lx.gif"
-             :19 "https://j.gifs.com/lOZARg.gif"})
+             :17 "https://media.giphy.com/media/tT4CUC4jgCHkc/giphy.gif"})
 
 (def keyvec (shuffle (range (count gifmap)))) ;random vector of keys to the GIFs
 
